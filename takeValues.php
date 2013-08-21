@@ -1,11 +1,12 @@
 <?php
 	
-
 	include ("Classes/connectionDatabase.Class.php");
 	include ("Classes/Person.class.php");
+	include ("Classes/City.class.php");
 
 	$con = new Connection();		
 	$per = new Person();
+	$ci = new City();
 
 	$city = $_POST["city"];
 	$name =  $_POST["name"];
@@ -20,7 +21,6 @@
 	$negativeQualification = $_POST["negativeQualification"];
 	$photo = $_POST["photo"];
 
-
 	$per->setCity($city);
 	$per->setName($name);
 	$per->setEmail($email);
@@ -34,9 +34,17 @@
 	$per->setNegativeQualification($negativeQualification);
 	$per->setPhoto($photo);
 
-
 	$per->inserir($con->connect());
+
+	$cityName = $_POST["cityName"];
+	$uf = $_POST["uf"];
 	
-  header("Location: showPerson.php"); 
-  exit();
+	$ci->setNameCity($cityName);
+	$ci->setUf($uf);
+	$ci->insertCity($con->connect());
+
+	 header("Location: showPerson.php");
+  	 exit();
+		
+  
 ?>

@@ -3,15 +3,12 @@
 	include('Classes/Person.class.php');
 	include('Classes/connectionDatabase.Class.php');
 
-
 	$per = new Person();
 	$con = new Connection();
-
 
 	$people = $per->listarPessoa($con->connect());
 
 ?>
-
 
 <?php foreach ($people as $val) { ?> 
 
@@ -19,3 +16,5 @@
    
 
 <?php } ?>
+
+

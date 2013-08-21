@@ -1,11 +1,22 @@
 
 <?php
 header("Content-type: text/html; charset=utf-8");
+include ("Classes/City.class.php");
+include ("Classes/connectionDatabase.Class.php");
+
+$ci = new City();
+$con = new Connection();
+$city = $ci->listCity($con->connect());
 
 ?>
 
 <form method="post" action="takeValues.php">
-	city <input type="text" name="city" id="city" ><br/>
+
+	Cidade:<select name="city">
+	<?php foreach ($city as $val) { ?> 
+		<option  value="<? echo $val['idMunicipio']?>"><?php echo $val['nome']?></option>
+	<?php } ?>
+	</select></br>
 	name: <input type="text" name="name" id="name"><br/>
 	email: <input type="text" name="email" id="email"><br/>
 	password: <input type="password" name="password" id="password"><br/>
