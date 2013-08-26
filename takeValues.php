@@ -3,10 +3,14 @@
 	include ("Classes/connectionDatabase.Class.php");
 	include ("Classes/Person.class.php");
 	include ("Classes/City.class.php");
+	include ("Classes/Car.class.php");
 
 	$con = new Connection();		
 	$per = new Person();
 	$ci = new City();
+	$car = new Car();
+
+	//values of people
 
 	$city = $_POST["city"];
 	$name =  $_POST["name"];
@@ -36,12 +40,38 @@
 
 	$per->inserir($con->connect());
 
+	//values of cities
 	$cityName = $_POST["cityName"];
 	$uf = $_POST["uf"];
 	
 	$ci->setNameCity($cityName);
 	$ci->setUf($uf);
 	$ci->insertCity($con->connect());
+
+	//values of Cars
+	$idPerson = $_POST["idPerson"];
+	$plate = $_POST["plate"];
+	$description = $_POST["description"];
+	$year = $_POST["year"];
+	$color = $_POST["color"];
+	$photo = $_POST["photo"];
+
+	echo $idPerson;
+	echo $plate;
+	echo $description;
+	echo $year;
+	echo $color;
+	echo $photo;
+
+	$car->setIdPerson($idPerson);
+	$car->setPlate($plate);
+	$car->setDescription($description);
+	$car->setYear($year);
+	$car->setColor($color);
+	$car->setPhoto($photo);
+
+
+	$car->insertCar($con->connect());
 
 	 header("Location: showPerson.php");
   	 exit();
