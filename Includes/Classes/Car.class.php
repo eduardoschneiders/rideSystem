@@ -37,7 +37,7 @@ Class Car {
 		$query = ("insert into Carro (idPessoa,placa,descricao,ano,cor,fotografia) values('" . $this->idPerson . "','" . $this->plate . "','" . $this->description . "','" . $this->year . "','" . $this->color . "','" . $this->photo . "')");
 		$sql = mysql_query($query,$connection);
 		return($sql);
-	}	
+	}
 
  }
 
