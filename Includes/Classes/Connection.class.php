@@ -98,7 +98,6 @@ class Connection {
         if($object->extras_select)
             $sql .= " ".$object->extras_select;
 
-        echo $sql.'<br />';
         return $this->runQuery($sql);
     }
 
