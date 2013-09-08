@@ -16,29 +16,6 @@
             }else{
                 $this->fields_values = $fields;
             }
-
         }
-
-        public function insert(){
-            parent::insert($this);
-        }
-
-        public function update(){
-            parent::update($this);
-        }
-
-        public function delete(){
-            parent::delete($this);
-        }
-
-        public function selectFields(){
-            return parent::selectFields($this);
-        }
-
-        public function selectAll(){
-            return parent::selectAll($this);
-        }
-
-
     }
 ?>
