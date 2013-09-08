@@ -32,9 +32,12 @@
                 return FALSE;
         }
 
-        public function insert($objeto){
+        public function insert(){
+
+            $object = get_object_vars($this);
+
             $i = 0;
-            foreach ($objeto->fields_values as $key => $value) {        //Set VALUES and KEYS
+            foreach ($object['fields_values'] as $key => $value) {        //Set VALUES and KEYS
                 $keys .= $key;
 
                 if(is_numeric($value))
@@ -42,7 +45,7 @@
                 else
                     $values .= "'" . $value . "'";              //set " ' " in string
 
-                if($i < (count($objeto->fields_values) - 1)){   //set " , " between fields
+                if($i < (count($object['fields_values']) - 1)){   //set " , " between fields
                     $keys .= ", ";
                     $values .= ", ";
                 }
@@ -50,35 +53,42 @@
                 $i++;
             }
 
-            $sql = "INSERT INTO " . $objeto->table . "(" . $keys . ") VALUES (" . $values . ")";        //Query
+            $sql = "INSERT INTO " . $object['table'] . "(" . $keys . ") VALUES (" . $values . ")";        //Query
+
             return parent::runQuery($sql);
         }
 
-        public function delete($object){
+        public function delete(){
 
-            if(is_numeric($object->valuePK))
-                $restriction = " = " . $object->valuePK;                                                //case NUMERIC, add '=' and the 'number'
+            $object = get_object_vars($this);
+
+            if(is_numeric($object['valuePK']))
+                $restriction = " = " . $object['valuePK'];                                                //case NUMERIC, add '=' and the 'number'
 
             else if (is_string($object->valuePK))
-                $restriction = " = '" . $object->valuePK . "'";                                         //case STRING, add 'value'
+                $restriction = " = '" . $object['valuePK'] . "'";                                         //case STRING, add 'value'
 
             else if(is_array($object->valuePK))
-                $restriction = ' IN (' . implode(',', $object->valuePK) . ')';                          //case ARRAY set the right structure, IN (array)
+                $restriction = ' IN (' . implode(',', $object['valuePK']) . ')';                          //case ARRAY set the right structure, IN (array)
 
-            $sql = "DELETE FROM " . $object->table . " WHERE " . $object->fieldPK . $restriction;       //Query
+            $sql = "DELETE FROM " . $object['table'] . " WHERE " . $object['fieldPK'] . $restriction;       //Query
             return parent::runQuery($sql);
 
         }
 
-        public function update($object){
+        public function update(){
+
+            $object = get_object_vars($this);
+
+
             $i = 0;
-            foreach ($object->fields_values as $key => $value) {        //Set VALUES and KEYS
+            foreach ($object['fields_values'] as $key => $value) {        //Set VALUES and KEYS
                 $key = $key . " = ";
 
                 if(!is_numeric($value))
                     $value = "'" . $value . "'";                //set " ' " in string
 
-                if($i < (count($object->fields_values) - 1)){   //set " , " between fields
+                if($i < (count($object['fields_values']) - 1)){   //set " , " between fields
                     $value .= ", ";
                 }
 
@@ -86,37 +96,42 @@
                 $i++;
             }
 
-            if(!is_numeric($object->valuePK))
-                $object->valuePK = "'" . $object->valuePK . "'";                //set " ' " in string
+            if(!is_numeric($object['valuePK']))
+                $object['valuePK'] = "'" . $object['valuePK'] . "'";                //set " ' " in string
 
-            $sql = "UPDATE " . $object->table . " SET " . $key_values . " WHERE " . $object->fieldPK . " = " . $object->valuePK;        //Query
+            $sql = "UPDATE " . $object['table'] . " SET " . $key_values . " WHERE " . $object['fieldPK'] . " = " . $object['valuePK'];        //Query
             return parent::runQuery($sql);
         }
 
-        public function selectFields($object){
+        public function selectFields(){
+
+            $object = get_object_vars($this);
 
             $i = 0;
-            foreach ($object->fields_values as $key => $value) {        //Set VALUES and KEYS
+            foreach ($object['fields_values'] as $key => $value) {        //Set VALUES and KEYS
                 $keys .= $key;
-                if($i < (count($object->fields_values) - 1)){   //set " , " between fields
+                if($i < (count($object['fields_values']) - 1)){   //set " , " between fields
                     $keys .= ", ";
                 }
                 $i++;
             }
 
 
-            $sql = "SELECT " . $keys . " FROM " . $object->table;
+            $sql = "SELECT " . $keys . " FROM " . $object['table'];
 
-            if($object->extras_select)
-                $sql .= " ".$object->extras_select;
+            if($object['extras_select'])
+                $sql .= " ".$object['extras_select'];
 
             return parent::runQuery($sql);
         }
 
         public function selectAll($object){
-            $sql = "SELECT * FROM " . $object->table;
-            if($object->extras_select)
-                $sql .= " ".$object->extras_select;
+
+            $object = get_object_vars($this);
+            
+            $sql = "SELECT * FROM " . $object['table'];
+            if($object['extras_select'])
+                $sql .= " ".$object['extras_select'];
 
             return parent::runQuery($sql);
         }
