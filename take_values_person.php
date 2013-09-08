@@ -6,7 +6,7 @@
     $city = $_POST["city"];
     $name =  $_POST["name"];
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
     $gender = $_POST["gender"];
     $residentialPhone = $_POST["residentialPhone"];
     $personalPhone = $_POST["personalPhone"];
