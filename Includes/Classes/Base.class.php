@@ -103,10 +103,14 @@
             return parent::runQuery($sql);
         }
 
-        public function all(){
+        public function find($id = NULL){
             $object = get_object_vars($this);
 
-            $sql = "SELECT * FROM " . $object['table'];
+            if($id)
+                $restriction = " WHERE " . $object['fieldPK'] . " = " . $id;
+
+            $sql = "SELECT * FROM " . $object['table'] . $restriction;
+
 
             $query = parent::runQuery($sql);
 

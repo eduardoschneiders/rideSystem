@@ -10,7 +10,7 @@ $html = new Html();
 
 echo $html->header();
 
-$all_people = $person->all();
+$all_people = $person->find();
 
 foreach ($all_people as $key => $person) {
     $person_options .= '<option  value="' . $person['idPessoa'] . '">' . $person['nome'] . '</option>';
