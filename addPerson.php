@@ -6,10 +6,10 @@ include ("Includes/config.php");
 
 $city = new City();
 
-$all_cities = $city->selectAll();
+$all_cities = $city->find();
 
-while ($theCity = mysql_fetch_array($all_cities)) {
-	$city_options .= '<option  value="' . $theCity['idMunicipio'] . '">' . $theCity['nome'] . '</option>';
+foreach ($all_cities as $key => $city) {
+	$city_options .= '<option  value="' . $city['idMunicipio'] . '">' . $city['nome'] . '</option>';
 }
 
 ?>
