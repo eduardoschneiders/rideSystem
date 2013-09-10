@@ -10,10 +10,10 @@ $html = new Html();
 
 echo $html->header();
 
-$all_people = $person->selectAll();
+$all_people = $person->all();
 
-while ($thePerson = mysql_fetch_array($all_people)) {
-    $person_options .= '<option  value="' . $thePerson['idPessoa'] . '">' . $thePerson['nome'] . '</option>';
+foreach ($all_people as $key => $person) {
+    $person_options .= '<option  value="' . $person['idPessoa'] . '">' . $person['nome'] . '</option>';
 }
 
 ?>

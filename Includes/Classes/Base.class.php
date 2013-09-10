@@ -103,6 +103,21 @@
             return parent::runQuery($sql);
         }
 
+        public function all(){
+            $object = get_object_vars($this);
+
+            $sql = "SELECT * FROM " . $object['table'];
+
+            $query = parent::runQuery($sql);
+
+            $lines = array();
+            while ($line = mysql_fetch_assoc($query)) {
+                $lines[] = $line;
+            }
+
+            return $lines;
+        }
+
         public function selectFields(){
 
             $object = get_object_vars($this);
@@ -128,7 +143,7 @@
         public function selectAll($object){
 
             $object = get_object_vars($this);
-            
+
             $sql = "SELECT * FROM " . $object['table'];
             if($object['extras_select'])
                 $sql .= " ".$object['extras_select'];
