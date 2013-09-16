@@ -3,13 +3,13 @@ a, a:hover, a:focus {
   text-decoration: none;
 }
 
-body {  
-  padding-top: 60px;  
-  padding-bottom: 40px;  
-  background: url(../img/bg_body.jpg) repeat;
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  background: url(../Images/bg_body.jpg) repeat;
   font-family: 'Signika', sans-serif;
-}  
-.nav li { 
+}
+.nav li {
   padding: 7px;
 }
 
@@ -44,10 +44,10 @@ summary::-webkit-details-marker {
   -webkit-box-shadow: 0 1px 0px #222;
   -khtml-box-shadow: 0 1px 0px #222;
   box-shadow: 0 1px 0px #222;
-  
+
 }
 
-.navbar .nav li a {  
+.navbar .nav li a {
   font-family: 'Signika', sans-serif;
   text-shadow: none;
   color: #999;
@@ -69,25 +69,25 @@ summary::-webkit-details-marker {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -khtml-border-radius: 30px;
-}   
+}
 
-.sidebar-nav {  
-  padding: 9px 0;  
-}  
+.sidebar-nav {
+  padding: 9px 0;
+}
 
 .navbar-inner {
   margin-bottom: 30px;
   text-align: center;
-  background: url(../img/bg_header-2.png) repeat left top;
+  background: url(../Images/bg_header-2.png) repeat left top;
 }
 
 .navbar-inner .container-fluid {
   width:960px !important;
 }
 
-.nav .nav-header {  
+.nav .nav-header {
   font-size: 18px;
-} 
+}
 
 .brand {
   font-size: 30px !important;
@@ -110,14 +110,14 @@ summary::-webkit-details-marker {
   box-shadow: 0 0 2px #cdcec8;
 }
 
-.busca {  
-  padding: 12px;  
+.busca {
+  padding: 12px;
   background: #f0f0f0;
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
-}  
+}
 
 .busca .numerocaronas {
   text-align: right;
@@ -126,24 +126,24 @@ summary::-webkit-details-marker {
   color: #999;
 }
 
-.busca h1 {  
-  font-size: 40px;  
-  margin-bottom: 5px;  
-  line-height: 1;  
-  letter-spacing: -1px;  
-  color:#FF6600;  
-}  
+.busca h1 {
+  font-size: 40px;
+  margin-bottom: 5px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color:#FF6600;
+}
 
-.busca p {  
-  font-size: 18px;  
-  font-weight: 200;  
-  line-height: 27px;  
+.busca p {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
 }
 
 .busca input {
   width: 98%;
   padding: 10px;
-  background: #FFF url(../img/icon_search.png) 99% no-repeat;
+  background: #FFF url(../Images/icon_search.png) 99% no-repeat;
 }
 
 .busca input:focus {
