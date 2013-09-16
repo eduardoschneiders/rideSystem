@@ -54,19 +54,19 @@
           <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
               <div class="container">
-                <a class="brand" href="#">
+                <a class="brand" href="./">
                   <span class="branco">ride</span><span class="laranja">System</span>
                 </a>
                 <div class="nav-collapse">
                   <ul class="nav">
-                    <li class="active"><a href="#">Hommer</a></li>
-                    <li><a href="#">Caronas</a></li>
+                    <li class="active"><a href="./">Hommer</a></li>
+                    <li><a href="showRides.php">Caronas</a></li>
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#contact">Contato</a></li>
                   </ul>
 
                   <ul class="nav pull-right login">
-                    <li><a href="#">Login</a></li>
+                    <li><a href="login.php">Login</a></li>
                   </ul>
                 </div>
               </div>
