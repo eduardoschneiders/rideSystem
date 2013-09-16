@@ -5,6 +5,9 @@ include ("Includes/Classes/City.class.php");
 include ("Includes/config.php");
 
 $city = new City();
+$html = new Html();
+
+echo $html->header();
 
 $all_cities = $city->find();
 
@@ -39,3 +42,5 @@ foreach ($all_cities as $key => $city) {
 	<input type="submit" value="Add">
 
 </form>
+
+<?php echo $html->footer(); ?>
