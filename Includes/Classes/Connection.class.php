@@ -26,10 +26,10 @@ class Connection {
         or die ($this->handleErrors(__FILE__, __FUNCTION__, mysql_errno(), mysql_error(), TRUE));
         mysql_select_db($this->DB) or die ("erro");
 
-        mysql_query("SET NAMES 'iso-8859-1'");
-        mysql_query("SET character_set_connection=iso-8859-1");
-        mysql_query("SET character_set_client=iso-8859-1");
-        mysql_query("SET character_set_results=iso-8859-1");
+        mysql_query("SET NAMES 'utf-8'");
+        mysql_query("SET character_set_connection=utf-8");
+        mysql_query("SET character_set_client=utf-8");
+        mysql_query("SET character_set_results=utf-8");
     }
 
     public function runQuery($sql = NULL){

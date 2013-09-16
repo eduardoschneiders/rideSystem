@@ -11,4 +11,5 @@
                 );
 
     $city->insert();
+    Util::redirect('showRides.php');
 ?>

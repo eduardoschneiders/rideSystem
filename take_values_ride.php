@@ -27,3 +27,4 @@
                 );
 
     $ride->insert();
+    Util::redirect('showRides.php');

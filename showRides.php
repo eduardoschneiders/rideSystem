@@ -1,6 +1,5 @@
 
 <?php
-header("Content-type: text/html; charset=utf-8");
 include ("Includes/Classes/Ride.class.php");
 include ("Includes/Classes/City.class.php");
 include ("Includes/Classes/Person.class.php");
@@ -9,6 +8,10 @@ include ("Includes/config.php");
 $ride = new Ride();
 $city = new City();
 $person = new Person();
+
+$html = new Html();
+echo $html->header();
+
 
 $rides = $ride->find();
 
@@ -33,3 +36,5 @@ foreach ($rides as $key => $ride) {
 <ul>
 	<?php echo $rides_item; ?>
 </ul>
+
+<?php echo $html->footer(); ?>

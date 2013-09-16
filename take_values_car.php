@@ -24,3 +24,4 @@
                 );
 
     $car->insert();
+    Util::redirect('showRides.php');
