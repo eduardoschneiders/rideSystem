@@ -34,3 +34,4 @@
                 );
 
     $person->insert();
+    Util::redirect('showRides.php');
