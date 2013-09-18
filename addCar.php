@@ -4,9 +4,13 @@ header("Content-type: text/html; charset=utf-8");
 
 include ("Includes/Classes/Person.class.php");
 include ("Includes/config.php");
+include ("Includes/Classes/Login.class.php");
 
+$login = new Login();
 $person = new Person();
 $html = new Html();
+
+$login->permission();
 
 echo $html->header();
 

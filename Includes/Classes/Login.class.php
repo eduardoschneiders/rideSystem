@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     require_once "Base.class.php";
     class Login extends Base{
   
@@ -19,11 +21,20 @@
             $linhas = mysql_num_rows($query);
             $result = mysql_fetch_array($query);       
             if ((md5($this->password) == $result["senha"]) and ($linhas == 1)):
-                echo "Logado com sucesso";
+                //echo "Logado com sucesso";
+                $_SESSION["usuario"] = "logado";
             else:
                 echo "Não logado!";
             endif;
 
+        }
+
+        public function permission(){
+            if (!isset($_SESSION["usuario"])){
+                echo("<script language = 'javascript'> alert('Você não tem permissão para acessar essa area do site!'); </script>");
+                echo("<script language = 'javascript'> location.href = 'login.php'; </script>");
+               
+            }
         }
     
    }

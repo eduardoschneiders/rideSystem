@@ -13,4 +13,9 @@
     $login->setPassword($senha);
 
     $login->signIn();
+
+    $login->permission();
+
+   
+ 
 ?>
