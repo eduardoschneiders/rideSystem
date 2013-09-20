@@ -66,6 +66,9 @@
                   </ul>
 
                   <ul class="nav pull-right login">
+                    <li><a href="addRide.php">Cadastrar Viagem</a></li>
+                    <li><a href="addCar.php">Cadastrar Carro</a></li>
+                    <li><a href="addPerson.php">Cadastrar-se</a></li>
                     <li><a href="login.php">Login</a></li>
                   </ul>
                 </div>
