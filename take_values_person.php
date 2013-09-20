@@ -12,8 +12,6 @@
     $personalPhone = $_POST["personalPhone"];
     $birthDate = $_POST["birthDate"];
     $smoker = $_POST["smoker"];
-    $positiveQualification = $_POST["positiveQualification"];
-    $negativeQualification = $_POST["negativeQualification"];
     $photo = $_POST["photo"];
 
     $person = new Person(
@@ -27,8 +25,6 @@
                         'telefoneCelular'           => $personalPhone,
                         'dataDeNascimento'          => $birthDate,
                         'fumante'                   => $smoker,
-                        'qualificacoesPositivas'    => $positiveQualification,
-                        'qualificacoesNegativas'    => $negativeQualification,
                         'fotografia'                => $photo
                     )
                 );

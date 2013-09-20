@@ -35,8 +35,6 @@ foreach ($all_cities as $key => $city) {
 	smoker:
 	sim<input type="radio" name="smoker" id="smokerSim" value="1">
 	não<input type="radio" name="smoker" id="smokerNão" value="0"> <br/>
-	qualificações positivas<input type="text" name="positiveQualification" id="positiveQualification" > <br/>
-	qualificações negativas<input type="text" name="negativeQualification" id="negativeQualification" > <br/>
 	photo<input type="text" name="photo" id="photo"> <br/>
 
 	<input type="submit" value="Add">
