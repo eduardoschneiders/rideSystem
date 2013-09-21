@@ -122,6 +122,15 @@
             return $lines;
         }
 
+        public function getLastId(){
+            $object = get_object_vars($this);
+            $sql = "SELECT MAX(" . $object['fieldPK'] .") AS lastPK FROM " . $object['table'];
+            echo $sql;
+            $query = parent::runQuery($sql);
+            $row =  mysql_fetch_assoc($query);
+            return $row['lastPK'];
+        }
+
         public function selectFields(){
 
             $object = get_object_vars($this);
