@@ -25,6 +25,7 @@
                 $_SESSION["userId"] = $result["idPessoa"];
                 $_SESSION["userName"] = $result["nome"];
                 $_SESSION["userPhoto"] = $result["fotografia"];
+                echo '<script type="text/javascript">document.location.href="index.php";</script>';
             else:
                 $_SESSION["logged"] = FALSE;
             endif;
