@@ -22,12 +22,16 @@ foreach ($travels as $key => $travel) {
 
 	$travels_item .= '
 					<li>
+              <b>De:</b> ' . $from[0]['nome'] . '
+              <b>Até:</b> ' . $to[0]['nome'] . '
+              <b>Motorista:</b> ' . $driver[0]['nome'] . '
+              <b>Partida:</b> ' . $travel['dataDePartida'] . ' ' . $travel['horarioDePartida'] . '
+              <b>Lugares Disponíveis:</b> ' . $travel['assentosDisponiveis'] . '
             <a href="takeRide.php?travel=' . $travel['idViagem'] . '">
-  						<b>De:</b> ' . $from[0]['nome'] . '
-  						<b>Até:</b> ' . $to[0]['nome'] . '
-  						<b>Motorista:</b> ' . $driver[0]['nome'] . '
-  						<b>Partida:</b> ' . $travel['dataDePartida'] . ' ' . $travel['horarioDePartida'] . '
-  						<b>Lugares Disponíveis:</b> ' . $travel['assentosDisponiveis'] . '
+              Carona
+            </a>
+            <a href="travelDetails.php?travel=' . $travel['idViagem'] . '">
+              Detalhes
             </a>
 					</li>
 				';

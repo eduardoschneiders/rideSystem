@@ -3,9 +3,8 @@
 
   class Ride extends Base{
     public function __construct($fields = array()){
-      parent::__construct();              //call connection
-      echo "teste";
 
+      parent::__construct();              //call connection
       $this->table    = 'Carona';      //some default values
       $this->fieldPK  = 'idCarona';
 

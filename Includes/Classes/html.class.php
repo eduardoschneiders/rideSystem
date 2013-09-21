@@ -52,7 +52,7 @@
       session_start();
 
       if($_SESSION['logged']){
-        $login = '<li><img width="50" src="Photos/' . $_SESSION["userPhoto"] . '"></li>
+        $login = '<li><img src="Photos/' . $_SESSION["userPhoto"] . '"></li>
                   <li><a href="addTravel.php">Cadastrar Viagem</a></li>
                   <li><a href="addCar.php">Cadastrar Carro</a></li>';
       }else{

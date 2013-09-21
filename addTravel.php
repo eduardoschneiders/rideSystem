@@ -25,7 +25,7 @@ $html = new Html();
 echo $html->header();
 ?>
 
-<form method="post" action="take_values_ride.php">
+<form method="post" action="take_values_travel.php">
 
     Origem:                 <select name="idMunicipioDestino"><?php echo $city_options ?></select></br>
     Destino:                <select name="idMunicipioOrigem"><?php echo $city_options ?></select></br>

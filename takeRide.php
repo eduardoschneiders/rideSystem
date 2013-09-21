@@ -11,7 +11,6 @@
                         'idPessoaCaroneiro' => $passenger,
                     )
                 );
-echo "adsf";
 
     $ride->insert();
     Util::redirect('showTravels.php');
