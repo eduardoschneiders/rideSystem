@@ -17,7 +17,7 @@ foreach ($all_cities as $key => $city) {
 
 ?>
 
-<form method="post" action="take_values_person.php">
+<form method="post" action="take_values_person.php" enctype="multipart/form-data">
 
 	Cidade:<select name="city">
 	<?php echo $city_options ?>
@@ -35,7 +35,7 @@ foreach ($all_cities as $key => $city) {
 	smoker:
 	sim<input type="radio" name="smoker" id="smokerSim" value="1">
 	não<input type="radio" name="smoker" id="smokerNão" value="0"> <br/>
-	photo<input type="text" name="photo" id="photo"> <br/>
+	photo<input type="file" name="photo" id="photo"> <br/>
 
 	<input type="submit" value="Add">
 
