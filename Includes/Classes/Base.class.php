@@ -103,15 +103,20 @@
             return parent::runQuery($sql);
         }
 
-        public function find($id = NULL){
+        public function find($id = array()){
             $object = get_object_vars($this);
 
-            if($id)
-                $restriction = " WHERE " . $object['fieldPK'] . " = " . $id;
+            if($id){
+                if(is_array($id)){
+                    foreach ($id as $key => $value) {
+                        $restriction_value = $key . ' = ' . $value;
+                    }
+                    $restriction = " WHERE " . $restriction_value;
+                }else
+                    $restriction = " WHERE " . $object['fieldPK'] . " = " . $id;
+            }
 
             $sql = "SELECT * FROM " . $object['table'] . $restriction;
-
-
             $query = parent::runQuery($sql);
 
             $lines = array();
