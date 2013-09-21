@@ -49,6 +49,17 @@
     }
 
     private function headerArea(){
+      session_start();
+
+      if($_SESSION['logged']){
+        $login = '<li><img width="50" src="Photos/' . $_SESSION["userPhoto"] . '"></li>
+                  <li><a href="addRide.php">Cadastrar Viagem</a></li>
+                  <li><a href="addCar.php">Cadastrar Carro</a></li>';
+      }else{
+        $login = '<li><a href="addPerson.php">Cadastrar-se</a></li>
+                  <li><a href="login.php">Login</a></li>';
+      }
+
       $html = '
         <header>
           <div class="navbar navbar-fixed-top">
@@ -66,10 +77,7 @@
                   </ul>
 
                   <ul class="nav pull-right login">
-                    <li><a href="addRide.php">Cadastrar Viagem</a></li>
-                    <li><a href="addCar.php">Cadastrar Carro</a></li>
-                    <li><a href="addPerson.php">Cadastrar-se</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    ' . $login . '
                   </ul>
                 </div>
               </div>

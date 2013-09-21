@@ -3,7 +3,7 @@
 
     require_once "Base.class.php";
     class Login extends Base{
-  
+
         private $login;
         private $password;
 
@@ -16,26 +16,31 @@
         }
 
         public function signIn(){
-            $select = "select senha from Pessoa where nome = '" . $this->login . "'";
-            $query = mysql_query($select);      
+            $select = "select nome, fotografia, senha from Pessoa where nome = '" . $this->login . "'";
+            $query = mysql_query($select);
             $linhas = mysql_num_rows($query);
-            $result = mysql_fetch_array($query);       
+            $result = mysql_fetch_array($query);
             if ((md5($this->password) == $result["senha"]) and ($linhas == 1)):
-                //echo "Logado com sucesso";
-                $_SESSION["usuario"] = "logado";
+                $_SESSION["logged"] = TRUE;
+                $_SESSION["userName"] = $result["nome"];
+                $_SESSION["userPhoto"] = $result["fotografia"];
+                echo $select;
+                echo "<pre>";
+                print_r($_SESSION);
+                echo "</pre>";
             else:
-                echo "Não logado!";
+                $_SESSION["logged"] = FALSE;
             endif;
 
         }
 
         public function permission(){
-            if (!isset($_SESSION["usuario"])){
+            if (!$_SESSION["logged"]){
                 echo("<script language = 'javascript'> alert('Você não tem permissão para acessar essa area do site!'); </script>");
                 echo("<script language = 'javascript'> location.href = 'login.php'; </script>");
-               
+
             }
         }
-    
+
    }
 ?>
