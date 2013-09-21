@@ -22,12 +22,9 @@
             $result = mysql_fetch_array($query);
             if ((md5($this->password) == $result["senha"]) and ($linhas == 1)):
                 $_SESSION["logged"] = TRUE;
+                $_SESSION["userId"] = $result["idPessoa"];
                 $_SESSION["userName"] = $result["nome"];
                 $_SESSION["userPhoto"] = $result["fotografia"];
-                echo $select;
-                echo "<pre>";
-                print_r($_SESSION);
-                echo "</pre>";
             else:
                 $_SESSION["logged"] = FALSE;
             endif;
