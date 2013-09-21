@@ -53,7 +53,7 @@
 
       if($_SESSION['logged']){
         $login = '<li><img width="50" src="Photos/' . $_SESSION["userPhoto"] . '"></li>
-                  <li><a href="addRide.php">Cadastrar Viagem</a></li>
+                  <li><a href="addTravel.php">Cadastrar Viagem</a></li>
                   <li><a href="addCar.php">Cadastrar Carro</a></li>';
       }else{
         $login = '<li><a href="addPerson.php">Cadastrar-se</a></li>
@@ -71,7 +71,7 @@
                 <div class="nav-collapse">
                   <ul class="nav">
                     <li class="active"><a href="./">Hommer</a></li>
-                    <li><a href="showRides.php">Caronas</a></li>
+                    <li><a href="showTravels.php">Caronas</a></li>
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#contact">Contato</a></li>
                   </ul>

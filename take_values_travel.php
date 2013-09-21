@@ -1,7 +1,7 @@
 <?php
 
     include ("Includes/config.php");
-    include ("Includes/Classes/Ride.class.php");
+    include ("Includes/Classes/Travel.class.php");
 
     //values of Cars
     $idMunicipioDestino     = $_POST["idMunicipioDestino"];
@@ -13,7 +13,7 @@
     $preco                  = $_POST["preco"];
     $observacao             = $_POST["observacao"];
 
-    $ride = new Ride(
+    $travel = new Travel(
                     array(
                         'idMunicipioDestino'    => $idMunicipioDestino,
                         'idMunicipioOrigem'     => $idMunicipioOrigem,
@@ -26,5 +26,5 @@
                     )
                 );
 
-    $ride->insert();
-    Util::redirect('showRides.php');
+    $travel->insert();
+    Util::redirect('showTravels.php');

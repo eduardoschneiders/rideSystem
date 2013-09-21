@@ -1,6 +1,6 @@
 <?php
     require_once "Base.class.php";
-    class Ride extends Base{
+    class Travel extends Base{
 
         public function __construct($fields = array()){
             parent::__construct();              //call connection

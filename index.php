@@ -1,2 +1,2 @@
 <?php
-    header('location: showRides.php');
+    header('location: showTravels.php');
