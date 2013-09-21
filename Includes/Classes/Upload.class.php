@@ -12,7 +12,7 @@ class Upload{
 
 	public $allowed_file_type 			= array("image/gif", "image/jpeg", "image/png", "image/pjpeg");
 	public $allowed_file_size 			= 10000000;
-	public $allowed_file_dimensions 	= array('width' => 500, 'height' => 500);
+	public $allowed_file_dimensions 	= array('width' => 50, 'height' => 25);
 
 	//Image Settings
 	public function image_settings($file, $path, $name){
