@@ -71,7 +71,7 @@
                 <div class="nav-collapse">
                   <ul class="nav">
                     <li class="active"><a href="./">Hommer</a></li>
-                    <li><a href="showTravels.php">Caronas</a></li>
+                    <li><a href="showTravels.php?driver=' . $_SESSION['userId'] . '">Minhas Caronas</a></li>
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#contact">Contato</a></li>
                   </ul>
