@@ -22,13 +22,14 @@ foreach ($all_people as $key => $person) {
 
 ?>
 
-<form method="post" action="take_values_car.php">
+<form method="post" action="take_values_car.php" enctype="multipart/form-data">
     Pessoa:     <select name="idPerson"><?php echo $person_options ?></select></br>
     Placa:      <input type="text" name="plate"></input></br>
     Descrição:  <input type="text" name="description"></input></br>
     Ano:        <input type="text" name="year"></input></br>
     Cor:        <input type="text" name="color"></input></br>
-    Foto:       <input type="text" name="photo"></input></br>
+    Foto:       <input type="file" name="photo" id="photo"> <br/>
+
 
     <input type="submit" name="save" value="save"></input>
 </form>
