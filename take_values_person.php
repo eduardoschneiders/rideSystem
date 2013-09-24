@@ -23,7 +23,7 @@
   $nextPersonId = $person->getLastId() + 1;
 
   $fileName = $nextPersonId . '_' . $name . '_' . $uniqId;
-  if ($upload->upload_file($_FILES["photo"]["tmp_name"], 'Photos/', $fileName)){
+  if ($upload->upload_file($_FILES["photo"]["tmp_name"], 'Photos/People', $fileName)){
 
   }
 
