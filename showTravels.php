@@ -15,7 +15,12 @@ $html = new Html();
 echo $html->header();
 
 
-$travels = $travel->find();
+$driver = $_GET['driver'];
+
+if($driver)
+  $restriction = array('idPessoaMotorista' => $driver);
+
+$travels = $travel->find($restriction);
 
 foreach ($travels as $key => $travel) {
 	$from = $city->find($travel['idMunicipioDestino']);
