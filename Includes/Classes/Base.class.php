@@ -32,6 +32,15 @@
                 return FALSE;
         }
 
+        public function save(){
+            $object = get_object_vars($this);
+
+            if($object['valuePK'])
+                $this->update();
+            else
+                $this->insert();
+        }
+
         public function insert(){
 
             $object = get_object_vars($this);
@@ -57,6 +66,7 @@
 
             return parent::runQuery($sql);
         }
+
 
         public function delete(){
 
