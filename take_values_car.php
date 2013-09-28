@@ -24,6 +24,12 @@
 
   if($photo['size']){
 
+    if($idCar){
+      $car = new Car();
+      $car = $car->find($idCar);
+      unlink('Photos/Cars/' . $car[0]['fotografia']);
+    }
+
     $upload = new Upload();
     $uniqId = Util::uniqId();
     $car = new Car();
