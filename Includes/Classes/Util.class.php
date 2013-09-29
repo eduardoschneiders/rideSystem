@@ -9,6 +9,10 @@ class Util{
     return md5(microtime());
   }
 
+  public function getPage(){
+    return end(explode('/', $_SERVER['SCRIPT_FILENAME']));
+  }
+
   public function pr($val){
     echo "<pre>";
     print_r($val);
