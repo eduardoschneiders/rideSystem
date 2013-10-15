@@ -1,14 +1,24 @@
 <?php
+	include ("Includes/Classes/Ride.class.php");
+
+
 	include ("Includes/config.php");
 	$nota = $_GET['nota'];
-	$_SESSION['teste'] = "alguma";
-
 	$motorista = $_GET['motorista'];
 	$passageiro = $_SESSION['userId'];
+	$idViagem = $_GET['idViagem'];
 
+
+	echo $motorista;
+	echo $nota;
 	echo $passageiro;
-	var_dump($_SESSION)
+
+	$ride = new Ride(
+		array('qualificacaoDoMotorista' => $nota)
+
+		);
 
 
+	$ride->valuePK = $idViagem;
 
 ?>
