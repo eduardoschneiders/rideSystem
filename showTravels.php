@@ -33,7 +33,7 @@ foreach ($travels as $key => $travel) {
               <b>De:</b> ' . $from[0]['nome'] . '
               <b>Até:</b> ' . $to[0]['nome'] . '
               <b>Motorista:</b> ' . $driver[0]['nome'] . '
-              <b>Partida:</b> ' . $travel['dataDePartida'] . ' ' . $travel['horarioDePartida'] . '
+              <b>Partida:</b> ' . Util::convertDate($travel['dataDePartida']) . ' ' . $travel['horarioDePartida'] . '
               <b>Lugares Disponíveis:</b> ' . $availableSeats  . '
             <a href="takeRide.php?travel=' . $travel['idViagem'] . '">
               Carona
