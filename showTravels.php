@@ -41,9 +41,16 @@ foreach ($travels as $key => $travel) {
             <a href="travelDetails.php?travel=' . $travel['idViagem'] . '">
               Detalhes
             </a>
+            <b><a href="take_values_qualifications.php?nota=1&motorista=' . $travel['idPessoaMotorista'] . '">1</b>
+            <b><a href="take_values_qualifications.php?nota=2&motorista=' . $travel['idPessoaMotorista'] . '">2</b>
+            <b><a href="take_values_qualifications.php?nota=3&motorista=' . $travel['idPessoaMotorista'] . '">3</b>
+            <b><a href="take_values_qualifications.php?nota=4&motorista=' . $travel['idPessoaMotorista'] . '">4</b>
+            <b><a href="take_values_qualifications.php?nota=5&motorista=' . $travel['idPessoaMotorista'] . '">5</b>
 					</li>
 				';
 }
+
+echo  $driver[0]['idPessoa'] ;
 
 ?>
 
