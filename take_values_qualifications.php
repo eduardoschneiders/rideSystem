@@ -12,13 +12,14 @@
 	echo $motorista;
 	echo $nota;
 	echo $passageiro;
-
 	$ride = new Ride(
 		array('qualificacaoDoMotorista' => $nota)
 
 		);
 
 
+
 	$ride->valuePK = $idViagem;
+	$ride->save();
 
 ?>
