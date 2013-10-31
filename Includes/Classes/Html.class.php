@@ -43,6 +43,7 @@
 
         <script type="text/javascript" src="Js/bootstrap.js"></script>
         <script type="text/javascript" src="Js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="Js/jquery-1.10.2.min.js"></script>
       ';
 
       return $html;
@@ -86,7 +87,7 @@
                   <li class="' . $active['addTravel'] . '"><a href="addTravel.php">Cadastrar Viagem</a></li>
                   <li class="' . $active['addCar'] . '"><a href="addCar.php">Cadastrar Carro</a></li>';
       }else{
-        $login = '<li><a href="addPerson.php">Cadastrar-se</a></li>
+        $login = '<li><a href="profile.php">Cadastrar-se</a></li>
                   <li><a href="login.php">Login</a></li>';
       }
 

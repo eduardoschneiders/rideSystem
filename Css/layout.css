@@ -3,195 +3,367 @@ a, a:hover, a:focus {
   text-decoration: none;
 }
 
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
-  background: url(../Images/bg_body.jpg) repeat;
+body {  
+  padding-top: 60px;  
+  padding-bottom: 40px;  
+  background: url(../img/bg_body.jpg) repeat;
   font-family: 'Signika', sans-serif;
 }
-.nav li {
-  padding: 7px;
+
+
+/* FORM */
+form#user-login {
+  width: 270px;
+  position: relative;
+  margin: 41px auto 0;
+  padding-bottom: 70px;
 }
 
-.container {
-  left: auto;
-  right: auto;
-}
 
-summary {
-  outline: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-.navbar .nav li a:hover, .navbar .nav .active a, .navbar .nav .active a:hover {
-  color: #F15D00;
-  border-radius: 30px;
-  background: #000 !important;
-  -moz-box-shadow: 0 1px 0px #222;
-  -webkit-box-shadow: 0 1px 0px #222;
-  -khtml-box-shadow: 0 1px 0px #222;
-  box-shadow: 0 1px 0px #222;
-}
-
-.navbar .nav .login {
-  color: #F15D00;
-  border-radius: 30px;
-  //background: #000 !important;
-  -moz-box-shadow: 0 1px 0px #222;
-  -webkit-box-shadow: 0 1px 0px #222;
-  -khtml-box-shadow: 0 1px 0px #222;
-  box-shadow: 0 1px 0px #222;
-
-}
-
-.navbar .nav li a {
-  font-family: 'Signika', sans-serif;
-  text-shadow: none;
-  color: #999;
-  text-decoration: none;
-  padding: 0px 10px;
-  font-weight: normal;
-  -webkit-transition: background 0.4s ease-out;
-  -moz-transition: background 0.4s ease-out;
-  -khtml-transition: background 0.4s ease-out;
-  transition: background 0.4s ease-out;
-  display: block;
-  float: left;
-  height: 26px;
-  line-height: 26px;
-  text-transform: capitalize;
-  outline: none;
+form#user-login label {
   font-size: 13px;
-  font-weight: normal;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -khtml-border-radius: 30px;
-}
-
-.sidebar-nav {
-  padding: 9px 0;
-}
-
-.navbar-inner {
-  margin-bottom: 30px;
-  text-align: center;
-  background: url(../Images/bg_header-2.png) repeat left top;
-}
-
-.navbar-inner .container-fluid {
-  width:960px !important;
-}
-
-.nav .nav-header {
-  font-size: 18px;
-}
-
-.brand {
-  font-size: 30px !important;
-  font-weight: 500 !important;
-  //font-family: 'Signika', sans-serif;
+  margin-bottom: 6px;
+  display: block;
   font-weight: bold;
-  text-shadow: none !important;
 }
 
-.brand .laranja {
+.h1-login {
+  text-align: center;
+  color: #F15D00 !important;
+  margin-top: 30px;
+  text-transform: uppercase;
+  font-size: 28px;
+  font-family: 'Signika', sans-serif;
+  font-weight: normal;
+  margin-bottom: 0.5em
+}
+
+.action-title {
+	padding-top: 16px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	background: #f5f5f5;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.form-required {
   color: #F15D00;
 }
 
-.brand .branco {
-  color: #fff;
+input:focus[type="text"], input:focus[type="password"] {
+  border: 1px solid #f60 !important;
+  color: #333 !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(103,61,0, 0.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(103,61,0, 0.6) !important;
 }
 
-.well {
-  background-color: white;
-  box-shadow: 0 0 2px #cdcec8;
+.form-text {
+  width: 100% !important;
+  background: #fafafa !important;
+  border: 1px solid #ccc !important;
+  border-bottom-color: #999 !important;
+  border-right-color: #999 !important;
+  color: #999 !important;
+  font-size: 15px !important;
+  height: 36px !important;
+  margin: 0;
 }
 
-.busca {
-  padding: 12px;
-  background: #f0f0f0;
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-}
-
-.busca .numerocaronas {
-  text-align: right;
-  margin-bottom: -4px;
-  font-size: 11px;
-  color: #999;
-}
-
-.busca h1 {
-  font-size: 40px;
-  margin-bottom: 5px;
-  line-height: 1;
-  letter-spacing: -1px;
-  color:#FF6600;
-}
-
-.busca p {
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 27px;
-}
-
-.busca input {
-  width: 98%;
-  padding: 10px;
-  background: #FFF url(../Images/icon_search.png) 99% no-repeat;
-}
-
-.busca input:focus {
-  border: 1px solid #f60;
+.form-text:focus {
+  background: #FFFFFF !important;
+  border: 1px solid #999 !important;
   color: #333 !important;
 }
 
-
-.ride {
-  border-top: #d5d5d5 1px solid;
-  padding: 12px 0 12px 20px;
-
+.forgot-password a {
+  float: right;
+  height: 30px;
+  color: #999;
+  line-height: 30px;
+  text-decoration: underline;
+  font-size: 11px;
+  outline: none !important;
 }
 
-.ride:hover {
-  background-color: #f9ffb5;
+.form-submit:hover {
+  border: 1px solid #999 !important;
+}
+
+.form-submit {
+  padding: 4px 10px;
+  text-shadow: #FFF 0px 1px 0;
+  -moz-text-shadow: #FFF 0px 1px 0;
   cursor: pointer;
-  -webkit-transition: background .3s ease-out;
+  color: #333;
+  background: #c7c7c7 url(http://openjobs.com.br/sites/all/themes/openjobs2010/images/bg_submit.png) repeat-x left top;
+  border: 1px solid #ccc;
+  border-bottom-color: #999;
+  border-right-color: #999;
 }
 
-.ride .row-fluid a:hover, .ride .row-fluid a .labelride:hover {
-  border-bottom: 1px solid #CCC !important;
+.center {
+  float: none;
+  margin: 0 auto;
 }
 
-.estrelas {
-  font-size: 25px;
-  padding-left: 18px;
+.alert h4 {
+  padding-bottom: 10px;
 }
 
-.labelride{
-  color: #969696;
-  font-size: 12px;
-  line-height: 1.3em;
-  float: left;
-  margin: -2px 0 0 0;
-  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif !important;
+.alert-error-field {
+  color: #000 !important;
+  background: #FFF4F1 !important;
+  border: 1px solid #D69999 !important;
 }
 
-.labelfromto {
-  padding-right: 4px;
+/***************************************************/
+
+
+.rating {
+  float:left;
 }
 
-.green {
-  color: #9cbb40;
-  font-weight: bold;
-}
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+   .rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+  }
 
-.red {
-  color: #f77760;
-  font-weight: bold;
-}
+  .rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:29px;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 1px 1px #666, .5px .5px .7px rgba(0,0,0,.5);
+  }
+
+  .rating:not(:checked) > label:before {
+    content: '★ ';
+  }
+
+  .rating > input:checked ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 1px 1px #B57340, .5px .5px .7px rgba(0,0,0,.5);
+  }
+
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 1px 1px #B57340, .5px .5px .7px rgba(0,0,0,.5);
+  }
+
+/*.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+    }*/
+
+/*.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+    }*/
+
+
+    /************************* NAV ***************************/
+    .nav li { 
+      padding: 7px;
+    }
+
+    .navbar .nav li a:hover, .navbar .nav .active a, .navbar .nav .active a:hover {
+      color: #F15D00;
+      border-radius: 30px;
+      background: #000 !important;
+      -moz-box-shadow: 0 1px 0px #222;
+      -webkit-box-shadow: 0 1px 0px #222;
+      -khtml-box-shadow: 0 1px 0px #222;
+      box-shadow: 0 1px 0px #222;
+    }
+
+    ul .nav .pull-right .login li a {
+      color: #F15D00;
+      border-radius: 30px;
+      -moz-box-shadow: 0 1px 0px #222;
+      -webkit-box-shadow: 0 1px 0px #222;
+      -khtml-box-shadow: 0 1px 0px #222;
+      box-shadow: 0 1px 0px #222;
+      font-weight: bold;
+    }
+
+    .navbar .nav li a {  
+      font-family: 'Signika', sans-serif;
+      text-shadow: none;
+      color: #999;
+      text-decoration: none;
+      padding: 0px 10px;
+      font-weight: normal;
+      -webkit-transition: background 0.4s ease-out;
+      -moz-transition: background 0.4s ease-out;
+      -khtml-transition: background 0.4s ease-out;
+      transition: background 0.4s ease-out;
+      display: block;
+      float: left;
+      height: 26px;
+      line-height: 26px;
+      text-transform: capitalize;
+      outline: none;
+      font-size: 13px;
+      font-weight: normal;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -khtml-border-radius: 30px;
+    }   
+
+    .sidebar-nav {  
+      padding: 9px 0;  
+    }  
+
+    .navbar-inner {
+      margin-bottom: 30px;
+      text-align: center;
+      height: 70px;
+      background: url(../img/bg_header-2.png) repeat left top;
+      border: none;
+      box-shadow: none !important;
+    }
+
+    .navbar-inner .container {
+      padding-top: 13px;
+    }
+
+    .nav .nav-header {  
+      font-size: 18px;
+    } 
+
+
+    /***********************/
+
+    .container {
+      left: auto;
+      right: auto;
+    }
+
+    .brand {
+      font-size: 30px !important;
+      font-weight: 500 !important;
+      //font-family: 'Signika', sans-serif;
+      font-weight: bold;
+      text-shadow: none !important;
+    }
+
+    .brand .laranja {
+      color: #F15D00;
+    }
+
+    .brand .branco {
+      color: #fff;
+    }
+
+    .well {
+      background-color: white;
+      border: #cdcec8 1px solid;
+      box-shadow: 0 0 2px #cdcec8;
+    }
+
+    .container .row {
+      padding-top: 35px !important;
+    }
+
+    .busca {  
+      padding: 12px;  
+      background: #f0f0f0;
+      -moz-border-radius-topleft: 4px;
+      -webkit-border-top-left-radius: 4px;
+      -moz-border-radius-topright: 4px;
+      -webkit-border-top-right-radius: 4px;
+    }  
+
+    .busca .numerocaronas {
+      text-align: right;
+      margin-bottom: -4px;
+      font-size: 11px;
+      color: #999;
+    }
+
+    .busca h1 {  
+      font-size: 40px;  
+      margin-bottom: 5px;  
+      line-height: 1;  
+      letter-spacing: -1px;  
+      color:#FF6600;  
+    }  
+
+    .busca p {  
+      font-size: 18px;  
+      font-weight: 200;  
+      line-height: 27px;  
+    }
+
+    .busca input {
+      width: 98%;
+      padding: 10px;
+      background: #FFF url(../img/icon_search.png) 99% no-repeat;
+    }
+
+    .ride {
+      border-top: #d5d5d5 1px solid;
+      padding: 12px 0 12px 20px;
+
+    }
+
+    .ride:hover {
+      background-color: #f9ffb5;
+      cursor: pointer;
+      -webkit-transition: background .3s ease-out;
+    }
+
+    .ride .row-fluid a:hover, .ride .row-fluid a .labelride:hover {
+      border-bottom: 1px solid #CCC !important;
+    }
+
+    .estrelas {
+      font-size: 25px;
+      padding-left: 18px;
+    }
+
+    .labelride{
+      color: #969696;
+      font-size: 12px;
+      line-height: 1.3em;
+      float: left;
+      margin: -2px 0 0 0;
+      font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif !important;
+    }
+
+    .labelfromto {
+      padding-right: 4px;
+    }
+
+    .green {
+      color: #9cbb40;
+      font-weight: bold;
+    }
+
+    .red {
+      color: #f77760;
+      font-weight: bold;
+    }
+	
+	.p-top {
+      padding-top: 10px;
+    }
+	
+	.p-right {
+	  padding-right: 20px;
+    }
