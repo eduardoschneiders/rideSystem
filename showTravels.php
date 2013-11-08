@@ -41,16 +41,16 @@ foreach ($travels as $key => $travel) {
             <a href="travelDetails.php?travel=' . $travel['idViagem'] . '">
               Detalhes
             </a>
-            <b><a href="take_values_qualifications.php?nota=1&motorista=' . $travel['idPessoaMotorista'] . '&idViagem='. $travel['idViagem'] .'" >1</b>
-            <b><a href="take_values_qualifications.php?nota=2&motorista=' . $travel['idPessoaMotorista'] . '&idViagem='. $travel['idViagem'] .'" >2</b>
-            <b><a href="take_values_qualifications.php?nota=3&motorista=' . $travel['idPessoaMotorista'] . '&idViagem='. $travel['idViagem'] .'" >3</b>
-            <b><a href="take_values_qualifications.php?nota=4&motorista=' . $travel['idPessoaMotorista'] . '&idViagem='. $travel['idViagem'] .'" >4</b>
-            <b><a href="take_values_qualifications.php?nota=5&motorista=' . $travel['idPessoaMotorista'] . '&idViagem='. $travel['idViagem'] .'" >5</b>
+            <b><a href="take_values_qualifications.php?nota=1&idViagem='. $travel['idViagem'] .'" >1</b>
+            <b><a href="take_values_qualifications.php?nota=2&idViagem='. $travel['idViagem'] .'" >2</b>
+            <b><a href="take_values_qualifications.php?nota=3&idViagem='. $travel['idViagem'] .'" >3</b>
+            <b><a href="take_values_qualifications.php?nota=4&idViagem='. $travel['idViagem'] .'" >4</b>
+            <b><a href="take_values_qualifications.php?nota=5&idViagem='. $travel['idViagem'] .'" >5</b>
 					</li>
 				';
 }
 
-echo  $driver[0]['idPessoa'] ;
+
 
 ?>
 
