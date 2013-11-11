@@ -11,132 +11,132 @@ $html = new Html();
 
 $idPerson = $_GET['idPerson'];
 if ($idPerson)
-	$thePerson = $person->find($idPerson);
+  $thePerson = $person->find($idPerson);
 
 
 echo $html->header();
 
 foreach ($city->find() as $key => $city) {
 
-	$selected = '';
-	if ($city['idMunicipio'] == $thePerson[0]['idMunicipio'])
-		$selected = 'selected="selected"';
+  $selected = '';
+  if ($city['idMunicipio'] == $thePerson[0]['idMunicipio'])
+    $selected = 'selected="selected"';
 
-	$city_options .= '<option ' . $selected . ' value="' . $city['idMunicipio'] . '">' . $city['nome'] . '</option>';
+  $city_options .= '<option ' . $selected . ' value="' . $city['idMunicipio'] . '">' . $city['nome'] . '</option>';
 }
 
 if ($thePerson[0]['sexo'] == 'm')
-	$gender_m = 'checked="checked"';
+  $gender_m = 'checked="checked"';
 else
-	$gender_f = 'checked="checked"';
+  $gender_f = 'checked="checked"';
 
 if ($thePerson[0]['fumante'] == '1')
-	$smoker_y = 'checked="checked"';
+  $smoker_y = 'checked="checked"';
 else
-	$smoker_n = 'checked="checked"';
+  $smoker_n = 'checked="checked"';
 
 ?>
 
 <!-- <form method="post" action="take_values_person.php" enctype="multipart/form-data">
 
-	Cidade:
-		<select name="city">
-		<?php echo $city_options ?>
-		</select></br>
-	name: <input type="text" ><br/>
-	email: <input type="text" ><br/>
-	password: <input type="password" name="password" id="password"><br/>
-	retype password: <input type="password" name="retypePassword" id="retypePassword"><br/>
-	gender:
-	Masculino <input type="radio" name="gender" value="m" id="genderMasculino" <?php echo $gender_m; ?>>
-	Femenino <input type="radio" name="gender" value="f" id="genderFemenino" <?php echo $gender_f; ?>><br/>
-	Residential Phone<input type="text" name="residentialPhone"  id="residentialPhone" value="<?php echo $thePerson[0]['telefoneResidencial']?>"><br/>
-	personal phone <input type="text" name="personalPhone" id="personalPhone" value="<?php echo $thePerson[0]['telefoneCelular']?>"><br/>
-	birthDate <input type="text" name="birthDate" id="birthDate" value="<?php echo $thePerson[0]['dataDeNascimento']?>"><br/>
-	smoker:
-	sim<input type="radio" name="smoker" id="smokerSim" value="1" <?php echo $smoker_y; ?>>
-	não<input type="radio" name="smoker" id="smokerNão" value="0" <?php echo $smoker_n; ?>> <br/>
-	photo<input type="file" name="photo" id="photo"> <br/>
+  Cidade:
+    <select name="city">
+    <?php echo $city_options ?>
+    </select></br>
+  name: <input type="text" ><br/>
+  email: <input type="text" ><br/>
+  password: <input type="password" name="password" id="password"><br/>
+  retype password: <input type="password" name="retypePassword" id="retypePassword"><br/>
+  gender:
+  Masculino <input type="radio" name="gender" value="m" id="genderMasculino" <?php echo $gender_m; ?>>
+  Femenino <input type="radio" name="gender" value="f" id="genderFemenino" <?php echo $gender_f; ?>><br/>
+  Residential Phone<input type="text" name="residentialPhone"  id="residentialPhone" value="<?php echo $thePerson[0]['telefoneResidencial']?>"><br/>
+  personal phone <input type="text" name="personalPhone" id="personalPhone" value="<?php echo $thePerson[0]['telefoneCelular']?>"><br/>
+  birthDate <input type="text" name="birthDate" id="birthDate" value="<?php echo $thePerson[0]['dataDeNascimento']?>"><br/>
+  smoker:
+  sim<input type="radio" name="smoker" id="smokerSim" value="1" <?php echo $smoker_y; ?>>
+  não<input type="radio" name="smoker" id="smokerNão" value="0" <?php echo $smoker_n; ?>> <br/>
+  photo<input type="file" name="photo" id="photo"> <br/>
 
-	<input type="submit" value="Add">
+  <input type="submit" value="Add">
 
 </form> -->
 
-					<div class="action-title">
+          <div class="action-title">
             <h1>Editar Perfil</h1>
           </div>
-					<div class="span2 offset1">
-						<div id="user-thumb-container">
-								<img style="max-width: 100px"  class="thumbnail" id="user-image" src="Photos/People/<?php echo $thePerson[0]['fotografia']?>" alt="Fotografia">
-								<a href="javascript:void(0)" id="btn_alterar_foto">Alterar foto</a>
-						</div>
-					</div>
+          <div class="span2 offset1">
+            <div id="user-thumb-container">
+                <img style="max-width: 100px"  class="thumbnail" id="user-image" src="Photos/People/<?php echo $thePerson[0]['fotografia']?>" alt="Fotografia">
+                <a href="javascript:void(0)" id="btn_alterar_foto">Alterar foto</a>
+            </div>
+          </div>
 
-				   <!--<div class="span2">-->
-					<form method="post" action="take_values_person.php" id="user-login" enctype="multipart/form-data">
+           <!--<div class="span2">-->
+          <form method="post" action="take_values_person.php" id="user-login" enctype="multipart/form-data">
 
-						<div>
-								<input type="file" name="photo" id="photo">
-							 <label for="name">Nome Completo: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-							 <input type="text" name="name" id="name" value="<?php echo $thePerson[0]['nome']?>" class="form-text required">
-						</div>
-						<div>
-							 <label for="username">E-mail: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-							 <input type="text" name="email" id="email" value="<?php echo $thePerson[0]['email']?>"class="form-text required">
-						</div>
-						<div>
-							 <label for="password">Senha: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-							 <input type="password" id="password" class="form-text required">
-						</div>
-						<div>
-							 <label for="password">Telefone Residencial: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-							 <input type="tel"  name="residentialPhone"  id="residentialPhone" value="<?php echo $thePerson[0]['telefoneResidencial']?>" class="form-text required">
-						</div>
-						<div>
-							 <label for="password">Celular: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-							 <input type="tel" name="personalPhone" id="personalPhone" value="<?php echo $thePerson[0]['telefoneCelular']?>" class="form-text required">
-						</div>
-						<div>
-							 <label for="dataNascimento">Data nascimento: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-							 <input type="date" name="birthDate" id="birthDate" value="<?php echo $thePerson[0]['dataDeNascimento']?>" class="form-text required">
-						</div>
-						<div class="clearfix">
-							<label for="cidade">Cidade: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-								<div>
+            <div>
+              <input type="file" name="photo" id="photo" style="display: none"> <br/>
+              <label for="name">Nome Completo: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+              <input type="text" name="name" id="name" value="<?php echo $thePerson[0]['nome']?>" class="form-text required">
+            </div>
+            <div>
+               <label for="username">E-mail: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+               <input type="text" name="email" id="email" value="<?php echo $thePerson[0]['email']?>"class="form-text required">
+            </div>
+            <div>
+               <label for="password">Senha: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+               <input type="password" id="password" class="form-text required">
+            </div>
+            <div>
+               <label for="password">Telefone Residencial: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+               <input type="tel"  name="residentialPhone"  id="residentialPhone" value="<?php echo $thePerson[0]['telefoneResidencial']?>" class="form-text required">
+            </div>
+            <div>
+               <label for="password">Celular: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+               <input type="tel" name="personalPhone" id="personalPhone" value="<?php echo $thePerson[0]['telefoneCelular']?>" class="form-text required">
+            </div>
+            <div>
+               <label for="dataNascimento">Data nascimento: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+               <input type="date" name="birthDate" id="birthDate" value="<?php echo $thePerson[0]['dataDeNascimento']?>" class="form-text required">
+            </div>
+            <div class="clearfix">
+              <label for="cidade">Cidade: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+                <div>
                 <select name="city" id="city" onblur="return validarCidade()" class="form-text required">
                   <option value="2">Selecionar</option>
                   <?php echo $city_options ?>
                  </select>
-								</div>
-							</div>
+                </div>
+              </div>
 
-						    <div class="p-top">
-							   <label for="fumante">Fumante: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-								<a class="p-right">
-									<input type="radio" name="smoker" value="1" <?php echo $smoker_y; ?> />Sim
-								</a>
-								<a class="p-right">
-									<input type="radio" name="smoker" value="0" <?php echo $smoker_n; ?>/>Não
-								</a>
-							</div>
-							<div class="p-top">
-							    <label for="sexo">Sexo: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-									<a class="p-right">
-										<input type="radio" name="sexo" value="m" <?php echo $gender_m; ?>/>Masculino
-									</a>
-									<a class="p-right">
-										<input type="radio" name="sexo" value="f" <?php echo $gender_f	; ?>/>Feminino
-									</a>
-							</div>
-							<div class="p-top">
-								<input type="submit" value="Salvar" class="form-submit">
-							</div>
+                <div class="p-top">
+                 <label for="fumante">Fumante: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+                <a class="p-right">
+                  <input type="radio" name="smoker" value="1" <?php echo $smoker_y; ?> />Sim
+                </a>
+                <a class="p-right">
+                  <input type="radio" name="smoker" value="0" <?php echo $smoker_n; ?>/>Não
+                </a>
+              </div>
+              <div class="p-top">
+                  <label for="sexo">Sexo: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+                  <a class="p-right">
+                    <input type="radio" name="sexo" value="m" <?php echo $gender_m; ?>/>Masculino
+                  </a>
+                  <a class="p-right">
+                    <input type="radio" name="sexo" value="f" <?php echo $gender_f  ; ?>/>Feminino
+                  </a>
+              </div>
+              <div class="p-top">
+                <input type="submit" value="Salvar" class="form-submit">
+              </div>
 
-			 </form>
+       </form>
 
 <?php echo $html->footer(); ?>
 <script type="text/javascript">
-	$("#btn_alterar_foto").click(function(){
-		$("#photo").click();
-	});
+  $("#btn_alterar_foto").click(function(){
+    $("#photo").click();
+  });
 </script>

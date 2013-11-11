@@ -23,6 +23,9 @@
   $nextPersonId = $person->getLastId() + 1;
 
   $fileName = $nextPersonId . '_' . $name . '_' . $uniqId;
+  // Util::pr($_POST);
+  // Util::pr($_FILES["photo"]["tmp_name"]);
+  // die();
   if ($upload->upload_file($_FILES["photo"]["tmp_name"], 'Photos/People/', $fileName)){
 
   }
@@ -42,5 +45,5 @@
                   )
               );
 
-  $person->insert();
+  $person->save();
   Util::redirect('showTravels.php');

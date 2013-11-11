@@ -83,9 +83,10 @@
       }
 
       if($_SESSION['logged']){
-        $login = '<li><img src="Photos/People/' . $_SESSION["userPhoto"] . '"></li>
-                  <li class="' . $active['addTravel'] . '"><a href="addTravel.php">Cadastrar Viagem</a></li>
-                  <li class="' . $active['addCar'] . '"><a href="addCar.php">Cadastrar Carro</a></li>';
+        $login = '<li class="' . $active['addTravel'] . '"><a href="addTravel.php">Cadastrar Viagem</a></li>
+                  <li class="' . $active['addCar'] . '"><a href="addCar.php">Cadastrar Carro</a></li>
+                  <li class="noStyle"><a href="profile.php?idPerson=' . $_SESSION['userId'] . '"><img src="Photos/People/' . $_SESSION["userPhoto"] . '"></a></li>
+                  <li class="noStyle logout"><a href="logout.php"></a></li>';
       }else{
         $login = '<li><a href="profile.php">Cadastrar-se</a></li>
                   <li><a href="login.php">Login</a></li>';
@@ -106,7 +107,6 @@
                     <li class="' . $active['showTravels'] . '"><a href="showTravels.php?driver=' . $_SESSION['userId'] . '">Minhas Caronas</a></li>
                     <li class="' . $active['showCar'] . '"><a href="showCar.php">Meu Carro</a></li>
                     <li><a href="#about">Sobre</a></li>
-                    <li><a href="#contact">Contato</a></li>
                   </ul>
 
                   <ul class="nav pull-right login">

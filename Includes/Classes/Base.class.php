@@ -33,6 +33,7 @@
         }
 
         public function save(){
+            die("asdkf");
             $object = get_object_vars($this);
 
             if($object['valuePK'])
@@ -110,6 +111,7 @@
                 $object['valuePK'] = "'" . $object['valuePK'] . "'";                //set " ' " in string
 
             $sql = "UPDATE " . $object['table'] . " SET " . $key_values . " WHERE " . $object['fieldPK'] . " = " . $object['valuePK'];        //Query
+            // die($sql);
             return parent::runQuery($sql);
         }
 
