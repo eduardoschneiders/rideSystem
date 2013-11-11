@@ -85,7 +85,7 @@
       if($_SESSION['logged']){
         $login = '<li class="' . $active['addTravel'] . '"><a href="addTravel.php">Cadastrar Viagem</a></li>
                   <li class="' . $active['addCar'] . '"><a href="addCar.php">Cadastrar Carro</a></li>
-                  <li class="noStyle"><a href="profile.php?idPerson=' . $_SESSION['userId'] . '"><img src="Photos/People/' . $_SESSION["userPhoto"] . '"></a></li>
+                  <li class="noStyle"><a href="profile.php?idPerson=' . $_SESSION['userId'] . '"><img style="max-width: 25px; max-height: 25px;" src="Photos/People/' . $_SESSION["userPhoto"] . '"></a></li>
                   <li class="noStyle logout"><a href="logout.php"></a></li>';
       }else{
         $login = '<li><a href="profile.php">Cadastrar-se</a></li>

@@ -33,7 +33,7 @@
         }
 
         public function save(){
-            die("asdkf");
+
             $object = get_object_vars($this);
 
             if($object['valuePK'])
