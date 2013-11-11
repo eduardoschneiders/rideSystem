@@ -16,7 +16,7 @@
         }
 
         public function signIn(){
-            $select = "select idPessoa, nome, fotografia, senha from Pessoa where nome = '" . $this->login . "' and senha = '" . md5($this->password) . "' " ;
+            $select = "select idPessoa, nome, fotografia, senha from Pessoa where email = '" . $this->login . "' and senha = '" . md5($this->password) . "' " ;
             $query = mysql_query($select);
             $linhas = mysql_num_rows($query);
             $result = mysql_fetch_array($query);

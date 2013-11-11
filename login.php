@@ -50,8 +50,8 @@
               <form action="check_values_login.php" method="post" id="user-login">
                 <div>
                   <div>
-                   <label for="username">Nome: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-                   <input type="text" id="username" name="nome" class="form-text required"> 
+                   <label for="username">Email: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
+                   <input type="text" id="username" name="email" class="form-text required"> 
                  </div>
                  <div>
                    <label for="password">Senha: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
