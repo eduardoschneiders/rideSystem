@@ -26,7 +26,7 @@ class Connection {
         or die ($this->handleErrors(__FILE__, __FUNCTION__, mysql_errno(), mysql_error(), TRUE));
         mysql_select_db($this->DB) or die ("erro");
 
-        mysql_set_charset('utf8', $this->connection);
+
 
     }
 

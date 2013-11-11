@@ -4,22 +4,29 @@
 
 	include ("Includes/config.php");
 	$nota = $_GET['nota'];
-	$motorista = $_GET['motorista'];
+
 	$passageiro = $_SESSION['userId'];
 	$idViagem = $_GET['idViagem'];
+	$currentUser = $_SESSION['userId'];
 
 
-	echo $motorista;
-	echo $nota;
-	echo $passageiro;
 	$ride = new Ride(
 		array('qualificacaoDoMotorista' => $nota)
 
 		);
 
+	 $rideID = $ride->find(
+                        array(
+                          'idViagem' => $idViagem,
+                          'idPessoaCaroneiro' => $currentUser
+                          )
+                      );
 
 
-	$ride->valuePK = $idViagem;
+
+	$ride->valuePK = $rideID[0]['idCarona'];
 	$ride->save();
+
+	Util::redirect('showTravels.php');
 
 ?>

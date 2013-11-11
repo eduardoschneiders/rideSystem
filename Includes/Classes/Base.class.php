@@ -33,6 +33,7 @@
         }
 
         public function save(){
+
             $object = get_object_vars($this);
 
             if($object['valuePK'])
@@ -110,17 +111,23 @@
                 $object['valuePK'] = "'" . $object['valuePK'] . "'";                //set " ' " in string
 
             $sql = "UPDATE " . $object['table'] . " SET " . $key_values . " WHERE " . $object['fieldPK'] . " = " . $object['valuePK'];        //Query
+            // die($sql);
             return parent::runQuery($sql);
         }
 
         public function find($id = array()){
             $object = get_object_vars($this);
 
+
             if($id){
                 if(is_array($id)){
+
+                    $restriction_value = array();
                     foreach ($id as $key => $value) {
-                        $restriction_value = $key . ' = ' . $value;
+                        $restriction_value[] = $key . ' = ' . $value;
                     }
+
+                    $restriction_value = join($restriction_value, " AND ");
                     $restriction = " WHERE " . $restriction_value;
                 }else
                     $restriction = " WHERE " . $object['fieldPK'] . " = " . $id;

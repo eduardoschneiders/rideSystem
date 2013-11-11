@@ -20,7 +20,20 @@
 
   foreach ($rides as $theRide) {
     $p1 = $person->find($theRide['idPessoaCaroneiro']);
-    $li .= '<li>' . $p1[0]['nome'] . '</li>';
+
+    $qualification_options = '
+                            <b><a href="take_values_hitchhiker_qualifications.php?nota=1&hitchhiker=' . $theRide['idPessoaCaroneiro'] . '&idViagem='. $idtravel .'" >1</b>
+                            <b><a href="take_values_hitchhiker_qualifications.php?nota=2&hitchhiker=' . $theRide['idPessoaCaroneiro'] . '&idViagem='. $idtravel .'" >2</b>
+                            <b><a href="take_values_hitchhiker_qualifications.php?nota=3&hitchhiker=' . $theRide['idPessoaCaroneiro'] . '&idViagem='. $idtravel .'" >3</b>
+                            <b><a href="take_values_hitchhiker_qualifications.php?nota=4&hitchhiker=' . $theRide['idPessoaCaroneiro'] . '&idViagem='. $idtravel .'" >4</b>
+                            <b><a href="take_values_hitchhiker_qualifications.php?nota=5&hitchhiker=' . $theRide['idPessoaCaroneiro'] . '&idViagem='. $idtravel .'" >5</b>
+    ';
+
+    $li .= '
+            <li>'
+              . $p1[0]['nome'] .
+              $qualification_options .
+            '</li>';
   }
   $destinationCity = $city->find($travel[0]['idMunicipioDestino']);
   $originCity = $city->find($travel[0]['idMunicipioOrigem']);
@@ -28,7 +41,7 @@
   echo $html->header();
 ?>
 
-Informações: <br />
+<b>Informações:</b> <br />
 Cidade Origem: <?php echo $originCity[0]['nome']?><br />
 Cidade Destino: <?php echo $destinationCity[0]['nome']?><br />
 Data de partida: <?php echo Util::convertDate($travel[0]['dataDePartida']);?><br />
