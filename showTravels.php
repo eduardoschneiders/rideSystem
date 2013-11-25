@@ -1,4 +1,4 @@
-
+  
 <?php
 include ("Includes/Classes/Travel.class.php");
 include ("Includes/Classes/Ride.class.php");
@@ -14,11 +14,34 @@ $ride = new Ride();
 $html = new Html();
 echo $html->header();
 
+Util::pr($_POST);
 
 $driver = $_GET['driver'];
 
+$restriction = array();
+
 if($driver)
-  $restriction = array('idPessoaMotorista' => $driver);
+  $restriction['idPessoaMotorista'] = $driver;
+
+$from             = $_POST["from"];
+$destination      = $_POST["destination"];
+$driver           = $_POST["driver"];
+$start_date       = $_POST["start_date"];
+$available_seats  = $_POST["available_seats"];
+
+if ($_POST){
+  if ($from)
+    $restriction['idMunicipioOrigem'] = $from;
+  if ($destination)
+    $restriction['idMunicipioDestino'] = $destination;
+  if ($driver)
+    $restriction['idPessoaMotorista'] = $driver;
+  if ($start_date)
+    $restriction['dataDePartida'] = $start_date;
+  if ($available_seats)
+    $restriction['assentosDisponiveis'] = $available_seats;
+
+}
 
 $travels = $travel->find($restriction);
 
@@ -49,10 +72,46 @@ foreach ($travels as $key => $travel) {
 					</li>
 				';
 }
+$city = new City();
 
+foreach ($city->find() as $key => $city) {
+
+  $selected = '';
+  $city_options .= '<option ' . $selected . ' value="' . $city['idMunicipio'] . '">' . $city['nome'] . '</option>';
+}
+
+$person = new Person();
+$pessoas = $person->find();
+
+foreach ($pessoas as $pessoa) {
+         $pessoa_options .= '<option ' . $selected . ' value="' . $pessoa['idPessoa'] . '">' . $pessoa['nome'] . '</option>';
+}
 
 
 ?>
+
+<form method="POST">
+  
+  <label>Origem:<select name="from" id="from" class="form-text required">
+    <option value="">Selecionar</option>
+      <?php echo $city_options ?>
+  </select></label>
+
+  <label>Destino:<select name="destination" id="destination" class="form-text required">
+    <option value="">Selecionar</option>
+      <?php echo $city_options ?>
+  </select></label>
+
+  <label>Motorista:<select name="driver" id="driver" class="form-text required">
+    <option value="">Selecionar</option>
+      <?php echo $pessoa_options ?>
+  </select></label>
+
+  <label>Data de partida:<input type="text" name="start_date"></label>
+  <label>Lugares disponiveis:<input type="text" name="available_seats"></label>
+  <input type="submit" value="buscar">
+
+</form>
 
 <ul>
 	<?php echo $travels_item; ?>

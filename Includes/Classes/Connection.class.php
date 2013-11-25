@@ -4,9 +4,9 @@ class Connection {
 
     //properties
     private $server         = 'localhost';
-    private $user           = 'rideSystem';
-    private $pass           = 'rideSystem';
-    private $DB             = 'rideSystem';
+    private $user           = 'root';
+    private $pass           = '';
+    private $DB             = 'Ride';
     private $connection     = NULL;
     private $dataset        = NULL;
     private $affectedLines  = -1;

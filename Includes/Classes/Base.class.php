@@ -134,6 +134,7 @@
             }
 
             $sql = "SELECT * FROM " . $object['table'] . $restriction;
+            echo $sql . "<br>" ;
             $query = parent::runQuery($sql);
 
             $lines = array();
