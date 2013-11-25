@@ -14,7 +14,7 @@
   $photo = $_FILES["photo"];
 
    $valuesCar = array(
-              'idPessoa'      => $idPerson,
+              'idPessoa'      => $_SESSION["userId"],
               'placa'         => $plate,
               'descricao'     => $description,
               'ano'           => $year,
@@ -50,7 +50,8 @@
   );
 
 
-  $car->valuePK = $idCar;
+  if ($idCar)
+    $car->valuePK = $idCar;
 
   $car->save();
   Util::redirect('showCar.php');

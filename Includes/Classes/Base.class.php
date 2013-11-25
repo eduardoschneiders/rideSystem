@@ -44,6 +44,7 @@
 
         public function insert(){
 
+
             $object = get_object_vars($this);
 
             $i = 0;
@@ -133,7 +134,6 @@
             }
 
             $sql = "SELECT * FROM " . $object['table'] . $restriction;
-            echo $sql . "<br>" ;
             $query = parent::runQuery($sql);
 
             $lines = array();

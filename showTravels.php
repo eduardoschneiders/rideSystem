@@ -1,4 +1,4 @@
-  
+
 <?php
 include ("Includes/Classes/Travel.class.php");
 include ("Includes/Classes/Ride.class.php");
@@ -13,8 +13,6 @@ $ride = new Ride();
 
 $html = new Html();
 echo $html->header();
-
-Util::pr($_POST);
 
 $driver = $_GET['driver'];
 
@@ -91,7 +89,7 @@ foreach ($pessoas as $pessoa) {
 ?>
 
 <form method="POST">
-  
+
   <label>Origem:<select name="from" id="from" class="form-text required">
     <option value="">Selecionar</option>
       <?php echo $city_options ?>
