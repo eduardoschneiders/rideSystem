@@ -9,11 +9,14 @@ $city = new City();
 $person = new Person();
 $html = new Html();
 
+$photo_path = 'img/no_profile_photo.jpg';
 $idPerson = $_GET['idPerson'];
 if ($idPerson){
   $thePerson = $person->find($idPerson);
   $input = '<input type="hidden" name="person" value="' . $thePerson[0]['idPessoa'] . '">';
 
+  if ($thePerson[0]['fotografia'])
+    $photo_path = 'Photos/People/' . $thePerson[0]['fotografia'];
 }
 
 
@@ -38,14 +41,17 @@ if ($thePerson[0]['fumante'] == '1')
 else
   $smoker_n = 'checked="checked"';
 
+  $command_perfil = "Adicionar";
+  if ($idPerson)
+    $command_perfil = "Editar";
 ?>
 
           <div class="action-title">
-            <h1>Editar Perfil</h1>
+            <h1><?php echo $command_perfil; ?> Perfil</h1>
           </div>
           <div class="span2 offset1" style="margin-top: 65px;">
             <div id="user-thumb-container">
-                <img style="max-width: 100px"  class="thumbnail" id="user-image" src="Photos/People/<?php echo $thePerson[0]['fotografia']?>" alt="Fotografia">
+                <img style="max-width: 100px"  class="thumbnail" id="user-image" src="<?php echo $photo_path; ?>" alt="Fotografia">
                 <a href="javascript:void(0)" id="btn_alterar_foto">Alterar foto</a>
             </div>
           </div>
@@ -65,7 +71,7 @@ else
             </div>
             <div>
                <label for="password">Senha: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
-               <input type="password" id="password" class="form-text required">
+               <input type="password" name="password" id="password" class="form-text required">
             </div>
             <div>
                <label for="password">Telefone Residencial: <span class="form-required" title="Este campo é obrigatório.">*</span></label>
