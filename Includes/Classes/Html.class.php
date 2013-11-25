@@ -92,6 +92,9 @@
                   <li class="' . $active['addCar'] . '"><a href="addCar.php">Cadastrar Carro</a></li>
                   <li class="noStyle"><a href="profile.php?idPerson=' . $_SESSION['userId'] . '"><img style="max-width: 25px; max-height: 25px;" src="' . $photo_path . '"></a></li>
                   <li class="noStyle logout"><a href="logout.php"></a></li>';
+        $myThings = '
+                    <li class="' . $active['showTravels'] . '"><a href="showTravels.php?driver=' . $_SESSION['userId'] . '">Minhas Caronas</a></li>
+                    <li class="' . $active['showCar'] . '"><a href="showCar.php">Meu Carro</a></li>';
       }else{
         $login = '<li><a href="profile.php">Cadastrar-se</a></li>
                   <li><a href="login.php">Login</a></li>';
@@ -109,8 +112,7 @@
                 <div class="nav-collapse">
                   <ul class="nav">
                     <li class="' . $active['index'] . '"><a href="./">Hommer</a></li>
-                    <li class="' . $active['showTravels'] . '"><a href="showTravels.php?driver=' . $_SESSION['userId'] . '">Minhas Caronas</a></li>
-                    <li class="' . $active['showCar'] . '"><a href="showCar.php">Meu Carro</a></li>
+                    ' . $myThings . '
                     <li><a href="#about">Sobre</a></li>
                   </ul>
 
