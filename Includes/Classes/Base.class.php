@@ -64,7 +64,7 @@
             }
 
             $sql = "INSERT INTO " . $object['table'] . "(" . $keys . ") VALUES (" . $values . ")";        //Query
-
+            // die($sql);
             return parent::runQuery($sql);
         }
 
@@ -111,7 +111,6 @@
                 $object['valuePK'] = "'" . $object['valuePK'] . "'";                //set " ' " in string
 
             $sql = "UPDATE " . $object['table'] . " SET " . $key_values . " WHERE " . $object['fieldPK'] . " = " . $object['valuePK'];        //Query
-            // die($sql);
             return parent::runQuery($sql);
         }
 
@@ -134,6 +133,7 @@
             }
 
             $sql = "SELECT * FROM " . $object['table'] . $restriction;
+            echo $sql . "<br>" ;
             $query = parent::runQuery($sql);
 
             $lines = array();

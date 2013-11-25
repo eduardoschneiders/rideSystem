@@ -1,9 +1,7 @@
 <?php
-
   include ("Includes/config.php");
   include ("Includes/Classes/Person.class.php");
   include ("Includes/Classes/Upload.class.php");
-
 
   $city             = $_POST["city"];
   $name             =  $_POST["name"];
@@ -15,27 +13,12 @@
   $birthDate        = $_POST["birthDate"];
   $smoker           = $_POST["smoker"];
   $photo            = $_FILES["photo"];
-  $personId         = $_POST['person'];
+  $personIdParam    = $_POST['person'];
 
 
 
 
-  #uplod Photo
-  $uniqId = Util::uniqId();
-  $upload = new Upload();
-  $person = new Person();
 
-  if (!$personId)
-    $personId = $person->getLastId() + 1;
-
-  $fileName = $personId . '_' . Util::clearString(Util::firstWord($name)) . '_' . $uniqId;
-
-
-
-  $upload->allowed_file_dimensions = array('width' => 500, 'height' => 250);
-  if ($upload->upload_file($photo["tmp_name"], 'Photos/People/', $fileName)){
-
-  }
 
   $personData = array(
                       'idMunicipio'               => $city,
@@ -49,14 +32,33 @@
                       'fumante'                   => $smoker,
                   );
 
-  if($photo)
+
+  #uplod Photo
+  if($photo['size']){
+
+    $uniqId = Util::uniqId();
+    $upload = new Upload();
+
+    $personId = $personIdParam;
+    if (!$personIdParam){
+      $person = new Person();
+      $personId = $person->getLastId() + 1;
+    }
+
+
+    $fileName = $personId . '_' . Util::clearString(Util::firstWord($name)) . '_' . $uniqId;
+
+    $upload->allowed_file_dimensions = array('width' => 500, 'height' => 250);
+    $upload->upload_file($photo["tmp_name"], 'Photos/People/', $fileName);
+
     $personData['fotografia'] = $upload->get_file_name();
+    $_SESSION["userPhoto"] = $upload->get_file_name();
+
+  }
 
   $person = new Person($personData);
-
-
-  $person->valuePK = $personId;
+  if ($personIdParam)
+    $person->valuePK = $personIdParam;
   $person->save();
 
-  $_SESSION["userPhoto"] = $upload->get_file_name();
   Util::redirect('showTravels.php');

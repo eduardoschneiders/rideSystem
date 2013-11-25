@@ -16,11 +16,11 @@
         }
 
         public function signIn(){
-            $select = "select idPessoa, nome, fotografia, senha from Pessoa where nome = '" . $this->login . "'";
+            $select = "select idPessoa, nome, fotografia, senha from Pessoa where email = '" . $this->login . "' and senha = '" . md5($this->password) . "' " ;
             $query = mysql_query($select);
             $linhas = mysql_num_rows($query);
             $result = mysql_fetch_array($query);
-            if ((md5($this->password) == $result["senha"]) and ($linhas == 1)):
+            if ($linhas >= 1):
                 $_SESSION["logged"] = TRUE;
                 $_SESSION["userId"] = $result["idPessoa"];
                 $_SESSION["userName"] = $result["nome"];
@@ -29,7 +29,6 @@
             else:
                 $_SESSION["logged"] = FALSE;
             endif;
-
         }
 
         public function permission(){
